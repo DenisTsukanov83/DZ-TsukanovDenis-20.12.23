@@ -1,0 +1,126 @@
+/* Top-menu */
+
+/* skin */
+.top-menu ul li {
+    cursor: pointer;
+    width: max-content;
+    background-color: rgb(101, 134, 30);
+    line-height: 50px;
+    list-style-type: none;
+    border: 1px solid white;
+    padding: 0 25px 0 15px;
+}
+
+.top-menu .out>li {
+    border-left: none;
+}
+
+.top-menu a {
+    display: block;
+    margin: auto;
+    pointer-events: none;
+}
+
+/* hover */
+.top-menu>ul {
+    display: flex;
+    align-items: center;
+    z-index: 5;
+}
+
+.top-menu>ul li {
+    display: flex;
+    width: 100%;
+    white-space: nowrap;
+    position: relative;
+}
+
+.top-menu>ul>li ul li {
+    height: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+@keyframes show {
+    100% {
+        height: 50px;
+        overflow: visible;
+    }
+}
+
+.out {
+    display: none;
+    position: absolute;
+    top: 101%;
+    left: 0;
+    flex-direction: column;
+    height: max-content;
+    width: max-content;
+}
+
+.in {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    left: 100%;
+    margin-top: -1px;
+    height: max-content;
+    width: max-content;
+    margin-left: 1px;
+}
+
+.top-menu>ul>li:hover>ul {
+    display: flex;
+}
+
+.top-menu>ul>li:hover>ul>li {
+    animation-name: show;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.out>li:hover>.in {
+    display: flex;
+}
+
+.out>li:hover>.in>li {
+    animation-name: show;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.out>li .in>li:hover>.in {
+    display: flex;
+}
+
+.out>li .in>li:hover>.in>li {
+    animation-name: show;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.top-menu li:hover {
+    background-color: rgb(207, 210, 105);
+    transition: 0.5s;
+}
+
+/* arrows */
+.arr-right::after {
+    content: '>';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 5px;
+    font-size: 12pt;
+    margin-left: -5px;
+}
+
+.arr-down::after {
+    content: '∨';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 5px;
+    font-size: 12pt;
+    margin-left: -5px;
+}
